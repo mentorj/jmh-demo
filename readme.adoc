@@ -1,0 +1,30 @@
+# JMH Demo
+:author:Jerome Moliere - deadbrain - jerome@javaxpert.com
+
+## Introduction
+This repository shows basic usage for JMH microbenchmarking harness suite
+
+## Comments & pitfalls
+
+### pom.xml
+
+In your projects do not forget to add JMH annotation processor dependency!!
+
+### Code
+
+#### configuration
+Most configuration  done through annotations on benchmark methods (should be public as ruled by the framework)
+One noticeable exception is the number of loops defined with a counter but annotated in the code with @Param to  be set to 3 different values
+
+#### Black holes
+
+JVM makes a lot of optimization and especially regarding dead code ...If you simply invokes some code and don't use it this code
+cam be considered as dead code and never invoked ...That 's why JMH provides BlackHoles class to consume code eventually dropped at runtime.
+It is used in these benchmarking methods.
+
+### Benchmarks
+
+This demo does not show all kind of benchmarks offered by JMH,  feel free to adapt this code and change some settings.
+
+
+
